@@ -3,6 +3,8 @@ function fibonacci(n){
 	return fibonacci(n-1)+fibonacci(n-2);
 }
 
+// 斐波那契数列公式就是 当n=0时输0，n=1时输出1，大于1时候输出x（n-1）+x(n-2)
+
 
 
 // 优化版
