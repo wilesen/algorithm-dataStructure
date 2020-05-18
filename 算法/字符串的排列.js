@@ -27,6 +27,22 @@
  * @param {string} s2
  * @return {boolean}
  */
-var checkInclusion = function(s1, s2) {
+ var checkInclusion = function(s1, s2) {
 
-};
+ 	let s1Sort=s1.split('').sort().join(''),n=s1.length;
+
+ 	for(let i=0;i<s2.length;i++){
+
+ 		if(s1Sort===s2.slice(i, i+n).split('').sort().join('')){
+ 			return true
+ 		}
+
+ 	}
+
+ 	return false
+
+ };
+
+ checkInclusion("ab" ,"eidbaooo")
+
+ checkInclusion("ab" ,"eidboaoo")
