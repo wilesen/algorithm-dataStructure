@@ -35,8 +35,9 @@
  var sub=new Subject();
 
 // 向依赖列表添加对象
- sub.add(wtz);
- sub.add(whh);
- sub.add(dfp);
+sub.add(wtz);
+sub.add(whh);
+sub.add(dfp);
  // 发生变化以后通知他们
  sub.notify();
+
