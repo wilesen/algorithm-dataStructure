@@ -1,3 +1,4 @@
+
 function getNum(n){
 	var num=0;
 	num+=Math.floor(n/5);
