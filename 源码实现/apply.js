@@ -21,3 +21,17 @@ Function.prototype.myApply=function(target){
 
 
 test.myApply({name:123},[1,2,3,4]);
+
+
+Function.prototype.applys=(argument)=>{
+	target.this=this||window;
+	let args=arguments[1];
+	let result;
+	if(args){
+		resize = =target.this(...args);
+	}else{
+		resize=target.this();
+	}
+	delete target._$this;
+	return result;
+}

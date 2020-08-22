@@ -49,4 +49,23 @@ request({
 //       </script>
 //       <script src='http://localhost:9871/api/jsonp?msg=helloJsonp&cb=jsonpCb' type='text/javascript'></script>
 
+const request=(url,data)=>{
+  return new Promise((resolve,reject)=>{
+    const handleData=(data)=>{
+      const keys=Object.keys(data);
+      const keysLen=keys.length;
+      return keys.reduce((pre,cur,index)=>{
+        const value=data[cur];
+        const flag=index!==keysLen-1?'&':'';
+        return `${pre}${cur}=${value}${flag}`;
+      })
+    }
+    const script=document.createElement('script');
+    window.jsonpCb=(res)=>{
+      console.log(res);
+    }
+    script.scr=`${url}?${handleData(data)}&cb=jsonpCb`
+  })
+}
+
 
