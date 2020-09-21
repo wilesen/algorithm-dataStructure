@@ -29,42 +29,29 @@ let nums = [-1, 0, 1, 2, -1, -4];
 *相加之和大于0，说明右侧的数偏大了，右指针左移
 *相加之和小于0，说明左侧的数偏小了，左指针右移
 */ 
-function addThree(nums){
-	let res=[];
-	nums = nums.sort((a,b)=>{
-		return a-b
-	})
-	let len=nums.length;
-	for(let i=0;i<len-2;i++){
-		let leftPointer=i+1;
-		let rightPointer=len-1;
-		if(i>0&&nums[i]===nums[i-1]) {
-			continue
-		}
-		while(leftPointer<rightPointer){
-			if(nums[i]+nums[leftPointer]+nums[rightPointer]<0){
-				leftPointer++;
-				while(leftPointer<rightPointer&&nums[leftPointer]===nums[leftPointer-1]){
-					leftPointer++;
-				}
-			}else if (nums[i]+nums[leftPointer]+nums[rightPointer]>0){
-				rightPointer--;
-				while(leftPointer<rightPointer&&nums[rightPointer]===nums[rightPointer+1]){
-					rightPointer--;				
-				}
-			}else{
-				res.push([nums[i],nums[leftPointer],nums[rightPointer]]);
-				leftPointer++;
-				rightPointer--;
-				while(leftPointer<rightPointer&&nums[leftPointer]===nums[leftPointer-1]){
-					leftPointer++;
-				}
-				while(leftPointer<rightPointer&&nums[rightPointer]===nums[rightPointer+1]){
-					rightPointer--;			
-				}
-			}	
-		}
-	}
-	return res;
+var threeSum=function(nums){
+ 	// 排序
+ 	let sortArr=nums.sort((a,b)=>a-b);
+ 	const size=nums.length;
+ 	let returnArr=[];
+ 	if(sortArr[0]<=0&&sortArr[size-1]>=0){
+ 		let i=0;
+ 		while (i<size-2) {
+ 			let first=i+1;
+ 			let last=size-1;
+ 			while (first<last) {
+ 				let sum=sortArr[i]+sortArr[first]+sortArr[last];
+ 				if(sum==0){
+ 					returnArr.push([sortArr[i],sortArr[first],sortArr[last]])
+ 				}
+ 				if(sum<0){
+ 					while (sortArr[first]==sortArr[++first]) {} //循环first，且如果遇见重复值则跳过
+ 				}else{
+ 					while (sortArr[last]==sortArr[--last]) {}//循环last，且如果遇见重复值则跳过
+ 				}
+ 		}
+ 			while (sortArr[i]==sortArr[++i]) {} //循环i，且如果遇见重复值则跳过
+ 		}
+ }
+ return returnArr;
 }
-addThree(nums)
