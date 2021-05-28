@@ -66,40 +66,6 @@ son2.getName()
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 function createObject(o){
 
   function F(){};

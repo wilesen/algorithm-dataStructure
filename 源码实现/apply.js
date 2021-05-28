@@ -10,6 +10,7 @@ Function.prototype.myApply = function (target) {
 	let args = arguments[1];
 	let result;
 	if (args) {
+		debugger
 		result = target._$this(...args);
 	} else {
 		result = target._$this();

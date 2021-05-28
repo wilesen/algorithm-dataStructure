@@ -11,8 +11,6 @@ function test() {
 	console.log(this.name)
 }
 
-test.bind({ name: 2 });
+test.bind({ name: 2 })();
 
-
-
-
+test.myBind({ name: 2 })()
